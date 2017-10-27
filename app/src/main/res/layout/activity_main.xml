@@ -9,6 +9,7 @@
 
     <pa1pal.newsstand.tabs.Tabs
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        app:text="@string/politics"/>
 
 </android.support.constraint.ConstraintLayout>
