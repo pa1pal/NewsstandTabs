@@ -24,7 +24,7 @@ public class Tabs extends View {
 
     int iconColor;
     Path tabPath, iconPath;
-    Paint tabPaint, iconPaint, shadowPaint, borderPaint;
+    Paint tabPaint, iconPaint, shadowPaint, borderPaint, textPaint;
 
     public Tabs(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -56,6 +56,7 @@ public class Tabs extends View {
         iconPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         shadowPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         borderPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        textPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         tabPath = new Path();
         iconPath = new Path();
     }
@@ -73,7 +74,7 @@ public class Tabs extends View {
         tabPaint.setAlpha(255);
         tabPaint.setStyle(Paint.Style.FILL);
         tabPaint.setColor(Color.WHITE);
-        canvas.drawRoundRect(new RectF(0, 0, 600, 150),  100, 100, tabPaint);
+        canvas.drawRoundRect(new RectF(0, 0, 500, 150),  100, 100, tabPaint);
 
         iconPaint.setColor(Color.RED);
         canvas.drawRoundRect(new RectF(0, 0, 150, 150),  100, 100, iconPaint);
@@ -82,8 +83,10 @@ public class Tabs extends View {
         borderPaint.setStrokeWidth(1);
         borderPaint.setColor(Color.BLACK);
         borderPaint.setAlpha(100);
-        canvas.drawRoundRect(new RectF(0, 0, 600, 150),  100, 100, borderPaint);
+        canvas.drawRoundRect(new RectF(0, 0, 500, 150),  100, 100, borderPaint);
 
+        textPaint.setTextSize(60);
+        canvas.drawText(getContext().getString(R.string.title), 180, 90, textPaint);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
