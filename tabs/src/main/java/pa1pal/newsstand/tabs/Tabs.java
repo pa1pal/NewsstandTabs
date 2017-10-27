@@ -23,6 +23,7 @@ import android.view.ViewOutlineProvider;
 public class Tabs extends View {
 
     int iconColor;
+    String tabText;
     Path tabPath, iconPath;
     Paint tabPaint, iconPaint, shadowPaint, borderPaint, textPaint;
 
@@ -35,6 +36,7 @@ public class Tabs extends View {
         try
         {
             iconColor = a.getColor(R.styleable.Tabs_iconColor, Color.BLACK);
+            tabText = a.getString(R.styleable.Tabs_text);
         }
         catch (Exception e)
         {
@@ -51,7 +53,6 @@ public class Tabs extends View {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             setOutlineProvider(new CustomOutline());
         }
-
         tabPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         iconPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         shadowPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -85,8 +86,8 @@ public class Tabs extends View {
         borderPaint.setAlpha(100);
         canvas.drawRoundRect(new RectF(0, 0, 500, 150),  100, 100, borderPaint);
 
-        textPaint.setTextSize(60);
-        canvas.drawText(getContext().getString(R.string.title), 180, 90, textPaint);
+        textPaint.setTextSize(50);
+        canvas.drawText(tabText, 180, 90, textPaint);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
